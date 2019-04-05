@@ -15,11 +15,9 @@ class App extends Component {
         "Second message",
       ]
     };
-    //necessary to have this work as expected
-    this.addData = this.addData.bind(this);
   }
 
-  addData() {
+  addData = () => {
     let newData = this.state.data;
     newData.push("this is a new line, new line, new line!");
 
