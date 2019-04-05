@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ListComponent from './ListComponent';
 
 class App extends Component {
 
@@ -8,7 +9,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      msg: "Hello banner message!",
+      msg: "Hello from the new banner component!",
       data: [
         "First message",
         "Second message",
@@ -30,9 +31,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <HelloBanner msg={this.state.msg} data={this.state.data}/>
-
         <input type="button" onClick={this.addData} value={"Click me!"}/>
+
+        <HelloBanner msg={this.state.msg} />
+        <ListComponent data={this.state.data} />
       </div>
     );
   }
@@ -45,23 +47,7 @@ class HelloBanner extends Component {
     return (
         <div>
           {this.props.msg}
-
-          {this.props.data.map((val, index) => {
-            return <ListItem key={index} txt={val}/>
-          })}
         </div>
-    );
-  }
-}
-
-class ListItem extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div>{this.props.txt}</div>
     );
   }
 }
